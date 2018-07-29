@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
-import Login from './pages/Login';
-import Register from './pages/Register';
-// import Posts from './pages/Posts';
+import LoginPage from './pages/Login';
+import RegisterPage from './pages/Register';
+import PostsPage from './pages/Posts';
 import style from './styles.css'
 
 const App = () => {
@@ -10,9 +10,9 @@ const App = () => {
     <div className={style.mainContainer}>
       <Router>
         <Switch>
-          <Route path='/login' component={Login} />
-          <Route path='/register' component={Register} />
-          {/* <Route path='/posts' component={Posts} /> */}
+          <Route path='/login' component={LoginPage} />
+          <Route path='/register' component={RegisterPage} />
+          <Route path='/posts' component={PostsPage} />
           <Redirect from='/' to='/login' />
         </Switch>
       </Router>
