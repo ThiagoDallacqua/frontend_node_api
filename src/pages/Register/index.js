@@ -3,12 +3,12 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { fetchUser } from '../../actions'
 import AuthCard from '../../components/common/AuthCard'
-import RegsterForm from '../../components/Forms/RegisterForm'
+import RegisterForm from '../../components/Forms/RegisterForm'
 import style from '../styles.css'
 
 const RegisterPage = ({ registerAndKeepUser, history }) => (
   <AuthCard title='Register'>
-    <RegsterForm
+    <RegisterForm
       onSubmit={async (name, surname, email, password) => {
         await registerAndKeepUser({ name, surname, email, password }, 'register')
         history.push('/posts')

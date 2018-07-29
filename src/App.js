@@ -1,10 +1,25 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
+import Loadable from 'react-loadable'
 import LoginPage from './pages/Login'
-import RegisterPage from './pages/Register'
-import PostsPage from './pages/Posts/Index'
-import CreatePostPage from './pages/Posts/Create'
 import style from './styles.css'
+
+const Loading = () => <div>Loading...</div>
+
+const RegisterPage = Loadable({
+  loader: () => import('./pages/Register'),
+  loading: Loading,
+})
+
+const PostsPage = Loadable({
+  loader: () => import('./pages/Posts/Index'),
+  loading: Loading,
+})
+
+const CreatePostPage = Loadable({
+  loader: () => import('./pages/Posts/Create'),
+  loading: Loading,
+})
 
 const App = () => {
   return (

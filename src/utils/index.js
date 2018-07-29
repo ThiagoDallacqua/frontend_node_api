@@ -23,7 +23,7 @@ export const makePostRequest = (data, route) => {
     })
 }
 
-export const createOnePost = ({content, postData}, token) => {
+export const createOnePost = ({creator, title, content, postData}, token) => {
   return fetch('/create/post', {
     headers: {
       'Content-Type': 'application/json',
@@ -32,6 +32,8 @@ export const createOnePost = ({content, postData}, token) => {
     },
     method: 'post',
     body: JSON.stringify({post: {
+      creator,
+      title,
       content,
       postData
     }})

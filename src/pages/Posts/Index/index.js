@@ -26,16 +26,24 @@ class PostPage extends React.Component {
         </div>
         {
           posts.length > 0
-          ? posts.map(({ id, post }) => (
+            ? posts.map(({ id, post, creatorId }) => (
               <Card key={id}>
-                <h1 className={style.title}>{moment(post.postDate).format('DD/MM/YY')}</h1>
+                <h1 className={style.postTitle}>
+                  {post.title}
+                  <span className={style.titleDate}>{moment(post.postDate).format('DD/MM/YY')}</span>
+                </h1>
+                <h2 className={style.postCreator}>{`posted by: ${post.creator}`}</h2>
                 <p className={style.content}>{post.content}</p>
-                <button
-                  onClick={async () => {
-                    await deletePost(token, id)
-                  }}
-                  className={style.deleteButton}
-                >Delete Post</button>
+                {
+                  user._id === creatorId
+                  ? <button
+                      onClick={async () => {
+                        await deletePost(token, id)
+                      }}
+                      className={style.deleteButton}
+                    >Delete Post</button>
+                  : null
+                }
               </Card>
             ))
           : null

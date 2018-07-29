@@ -12,9 +12,3 @@
   box-sizing: border-box;
   align-self: center; 
 }
-
-@media (max-width: 768px) {
-  .container{
-    width: 90vw;
-  }
-}

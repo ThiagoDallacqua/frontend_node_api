@@ -6,6 +6,28 @@
   font-size: 24px;
 }
 
+.postTitle{
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 10px;
+  width: 100%;
+  font-weight: 400;
+  text-align: left;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.postCreator{
+  font-size: 12px;
+  margin: 10px 0;
+}
+
+.titleDate{
+  font-size: 10px;
+}
+
 .actionContainer{
   width: 100%;
   display: flex;
@@ -38,4 +60,10 @@
 
 .buttonLink:hover, .deleteButton:hover{
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4) ;
+}
+
+@media (max-width: 375px){
+  .deleteButton, .buttonLink{
+  padding: 15px 10px;
+  }
 }

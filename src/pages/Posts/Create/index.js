@@ -7,16 +7,23 @@ import style from './styles.css'
 
 class CreatePostPage extends React.Component {
   state = {
+    title: '',
     post: ''
   }
 
-  onChange = e => this.setState({ post: e.target.value })
+  onTextChange = e => this.setState({ post: e.target.value })
+
+  onTitleChange = e => this.setState({ title: e.target.value })
 
   onClick = async () => {
     const post = {
+      creator: `${this.props.user.name} ${this.props.user.surname}`,
+      title: this.state.title,
       content: this.state.post,
       postDate: new Date()
     }
+
+    console.log(post)
     
     await this.props.createPost(post, this.props.token)
 
@@ -29,7 +36,7 @@ class CreatePostPage extends React.Component {
 
   render() {
     const { user, history } = this.props
-    const { post } = this.state
+    const { post, title } = this.state
     if (Object.keys(user).length === 0) {
       history.push('/login')
       return null
@@ -38,14 +45,25 @@ class CreatePostPage extends React.Component {
     return (
       <Card>
         <h1 className={sharedStyle.title}>Create a new post</h1>
-        <textarea
-          className={style.textarea}
-          cols='70'
-          rows='20'
-          placeholder='Your new post begins here...'
-          onChange={this.onChange}
-          value={post}
-        />
+        <div className={style.titleContainer}>
+          <h2 className={style.fieldHeading}>Title</h2>
+          <input
+            className={style.titleField}
+            type='text'
+            value={title}
+            onChange={this.onTitleChange}
+          />
+        </div>
+        <div className={style.textContainer}>
+          <h2 className={style.fieldHeading}>Content</h2>
+          <textarea
+            className={style.textarea}
+            rows='20'
+            placeholder='Your new post begins here...'
+            onChange={this.onTextChange}
+            value={post}
+          />
+        </div>
         <button
           style={{cursor: 'pointer', height: 'auto'}}
           className={sharedStyle.buttonLink}

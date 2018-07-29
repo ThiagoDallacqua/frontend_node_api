@@ -1,5 +1,29 @@
+.textContainer{
+  width: 100% !important;
+  margin-top: 30px;
+}
+
 .textarea{
-  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
   max-height: 250px;
   margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.titleContainer{
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.titleField{
+  width: 100%;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  margin-top: 30px;
+}
+
+.fieldHeading{
+  font-size: 12px;
+  margin: 0;
 }
