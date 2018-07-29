@@ -9,10 +9,17 @@ export function keepUser(user) {
   }
 }
 
+export function setAuthError(error) {
+  return {
+    type: KEEP_USER_DATA,
+    error
+  }
+}
+
 export function fetchUser(args, route) {
-  return dispatch => {
-    makePostRequest(args, route)
+  return async dispatch => {
+    await makePostRequest(args, route)
       .then(({ user }) => dispatch(keepUser(user)))
-      .catch(err => console.log(err));
-  };
+      .catch(err => dispatch(setAuthError(err)));
+  }
 }

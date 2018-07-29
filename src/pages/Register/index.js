@@ -6,10 +6,13 @@ import AuthCard from '../../components/common/AuthCard'
 import RegsterForm from '../../components/Forms/RegisterForm'
 import style from '../styles.css'
 
-const RegisterPage = ({registerAndKeepUser}) => (
+const RegisterPage = ({ registerAndKeepUser, history }) => (
   <AuthCard title='Register'>
     <RegsterForm
-      onSubmit={(name, surname, email, password) => registerAndKeepUser({ name, surname, email, password }, 'register')}
+      onSubmit={async (name, surname, email, password) => {
+        await registerAndKeepUser({ name, surname, email, password }, 'register')
+        history.push('/posts')
+      }}
     />
     <p>
       Already have an account? <Link className={style.link} to="/login">Login</Link>

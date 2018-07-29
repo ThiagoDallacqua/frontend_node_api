@@ -14,7 +14,7 @@ export const makePostRequest = (data, route) => {
         const secret = process.env.TOKEN_SECRET || 'ilovejavascript'
         return jwt.verify(data.token, secret, (err, decoded) => {
           if (err) {
-            return console.log('Failed to authenticate token.')
+            return {authorized: false, err}
           } else {
             return decoded
           }

@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
-import LoginPage from './pages/Login';
-import RegisterPage from './pages/Register';
-import PostsPage from './pages/Posts';
+import LoginPage from './pages/Login'
+import RegisterPage from './pages/Register'
+import PostsPage from './pages/Posts'
 import style from './styles.css'
 
 const App = () => {
@@ -20,4 +20,4 @@ const App = () => {
   );
 }
 
-export default App;
+export default App
