@@ -1,0 +1,25 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 30px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+  background-color: white;
+  width: 40vw;
+  max-width: 600px;
+  box-sizing: border-box;
+}
+
+.title{
+  margin: 0;
+  font-weight: 500;
+  text-align: left;
+  font-size: 24px;
+}
+
+@media (max-width: 768px) {
+  .container{
+    width: 90vw;
+  }
+}

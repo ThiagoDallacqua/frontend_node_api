@@ -1,0 +1,10 @@
+.mainContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(293.92deg, #49F2CE -2.87%, #00B2ED 97.61%);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
