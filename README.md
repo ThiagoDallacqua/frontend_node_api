@@ -14,6 +14,8 @@ To run this application, after installing the modules using the previous step, y
 
 **important:** As mentioned before, this application is the frontend part only, so it need the API running in order to be fully functional. So, before start using the application make sure to follow all instructions to run the API first.
 
+**obs.:** do setup a enviromet variable or change the hardcoded secret [here](https://github.com/ThiagoDallacqua/frontend_node_api/blob/cc89e4a4f6581ce4d68f6363179158ca93c732f9/src/utils/index.js#L14) to match the backend secret, or else you won't be able to decode the token.
+
 ## Quick overview
 
 This application will start in the login and register routes as accessible routes, as you'll be logged out/won't have been registered yet.
