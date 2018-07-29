@@ -39,6 +39,7 @@ export default class RegisterForm extends React.Component {
           placeholder='Name'
           type='text'
           value={name}
+          required
           className={style.inputs}
         />
         <input
@@ -55,6 +56,7 @@ export default class RegisterForm extends React.Component {
           placeholder='Email'
           type='email'
           value={email}
+          required
           className={style.inputs}
         />
         <input
@@ -63,6 +65,7 @@ export default class RegisterForm extends React.Component {
           placeholder='Password'
           type='password'
           value={password}
+          required
           className={style.inputs}
         />
         <button className={style.button} type='submit'>Register</button>
