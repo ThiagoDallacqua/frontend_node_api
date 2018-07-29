@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 
 export const makePostRequest = (data, route) => {
-  return fetch(`http://localhost:3001/${route}`, {
+  return fetch(`/${route}`, {
     headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json'
@@ -16,9 +16,56 @@ export const makePostRequest = (data, route) => {
           if (err) {
             return {authorized: false, err}
           } else {
-            return decoded
+            return {user: decoded.user, token: data.token}
           }
         })
       }
+    })
+}
+
+export const createOnePost = ({content, postData}, token) => {
+  return fetch('/create/post', {
+    headers: {
+      'Content-Type': 'application/json',
+      'x-access-token': token,
+      'Accept': 'application/json'
+    },
+    method: 'post',
+    body: JSON.stringify({post: {
+      content,
+      postData
+    }})
+  }).then(response => response.json())
+    .then(data => {
+      return data
+    })
+}
+
+export const fetchAllPosts = token => {
+  return fetch('/posts', {
+    headers: {
+      'Content-Type': 'application/json',
+      'x-access-token': token,
+      'Accept': 'application/json'
+    },
+    method: 'get'
+  }).then(response => response.json())
+    .then(data => {
+      return data
+    })
+}
+
+export const deleteOnePost = (token, id) => {
+  return fetch(`/post/${id}`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'x-access-token': token,
+      'Accept': 'application/json'
+    },
+    method: 'delete'
+  }).then(response => response.json())
+    .then(data => {
+      console.log(data)
+      return data
     })
 }
