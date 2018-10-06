@@ -11,7 +11,7 @@ export const makePostRequest = (data, route) => {
   }).then(response => response.json())
     .then(data => {
       if (data.success) {
-        const secret = process.env.TOKEN_SECRET || 'ilovejavascript'
+        const secret = process.env.TOKEN_SECRET || 'ilovepwa'
         return jwt.verify(data.token, secret, (err, decoded) => {
           if (err) {
             return {authorized: false, err}
