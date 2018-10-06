@@ -315,7 +315,7 @@ module.exports = {
         }
         console.log(message);
       },
-      minify: true,
+      minify: false,
       // For unknown URLs, fallback to the index page
       navigateFallback: publicUrl + '/index.html',
       // Ignores URLs starting from /__ (useful for Firebase):
@@ -323,6 +323,17 @@ module.exports = {
       navigateFallbackWhitelist: [/^(?!\/__).*/],
       // Don't precache sourcemaps (they're large) and build asset manifest:
       staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/],
+      cacheID: 'pwa-workshop',
+      runtimeCaching: [{
+        urlPattern: 'https://pwa-workshop.herokuapp.com/',
+        handler: 'networkFirst',
+        options: {
+          cache: {
+            maxEntries: 10,
+            name: 'posts-cache'
+          }
+        }
+      }]
     }),
     // Moment.js is an extremely popular library that bundles large locale files
     // by default due to how Webpack interprets its code. This is a practical
